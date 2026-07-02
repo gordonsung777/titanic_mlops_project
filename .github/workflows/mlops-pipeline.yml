@@ -43,6 +43,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install -e .
 
       - name: Show DVC and MLflow versions
         run: |
@@ -50,7 +51,7 @@ jobs:
           mlflow --version
 
       - name: Run unit tests
-        run: pytest -q
+        run: pytest -q tests
 
       - name: Run training, validation, and local deployment pipeline
         run: python scripts/run_pipeline.py --data data/titanic.csv --min-accuracy 0.70
