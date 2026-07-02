@@ -1,0 +1,30 @@
+stages:
+  train:
+    cmd: python scripts/train.py --data data/titanic.csv --params params.yaml
+    deps:
+      - data/titanic.csv
+      - params.yaml
+      - src/titanic_mlops/data.py
+      - src/titanic_mlops/modeling.py
+      - scripts/train.py
+    outs:
+      - models/candidate
+    metrics:
+      - reports/metrics.json
+  test:
+    cmd: python scripts/test_model.py --data data/titanic.csv --params params.yaml
+    deps:
+      - data/titanic.csv
+      - params.yaml
+      - models/candidate/model.joblib
+      - reports/metrics.json
+      - scripts/test_model.py
+  deploy:
+    cmd: python scripts/deploy.py
+    deps:
+      - models/candidate/model.joblib
+      - models/candidate/metadata.json
+      - reports/metrics.json
+      - scripts/deploy.py
+    outs:
+      - deployment

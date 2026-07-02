@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# MLflow local run storage
+mlruns/
+mlartifacts/
+
+# Generated pipeline outputs
+models/
+reports/
+deployment/
+
+# Keep DVC metadata tracked, but not DVC cache internals
+.dvc/cache/
+.dvc/tmp/

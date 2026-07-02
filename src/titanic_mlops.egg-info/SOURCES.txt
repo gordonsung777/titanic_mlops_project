@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/titanic_mlops/__init__.py
+src/titanic_mlops/data.py
+src/titanic_mlops/modeling.py
+src/titanic_mlops.egg-info/PKG-INFO
+src/titanic_mlops.egg-info/SOURCES.txt
+src/titanic_mlops.egg-info/dependency_links.txt
+src/titanic_mlops.egg-info/top_level.txt
+tests/test_data_contract.py
